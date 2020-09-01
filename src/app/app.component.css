@@ -1,0 +1,26 @@
+.global_container {
+    font-family: "Comic Sans MS", sans-serif;
+    width: 100%;
+}
+
+.global_h1 {
+    color: black;
+    border-top-style: solid;
+    border-top-color: grey;
+    background-color: darkslategray;
+    font-size: 36px;
+    font-family: "Comic Sans MS", sans-serif;
+    padding: 5px;
+    margin: 0;
+}
+
+.test {
+    width: 20%;
+    height: 500px;
+    background-color: darkgreen;
+    float: left;
+}
+.test2 {
+    display: inline-block;
+    width: 80%;
+}

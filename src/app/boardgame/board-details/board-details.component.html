@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="table-board-list">
+      <table class="board-list">
+        <thead>
+          <tr class="board-list-tr">
+            <th class="board-list-th" scope="col">Boardgame</th>
+            <th class="board-list-th" scope="col">Rok publikacji</th>
+            <th class="board-list-th" scope="col">Czas gry</th>
+            <th class="board-list-th" scope="col">Ilosc graczy</th>
+            <th class="board-list-th" scope="col">Opis</th>
+            <th class="board-list-th" scope="col">Wiek</th>
+            <th class="board-list-th" scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="board-list-tr" *ngIf="boardGame">
+            <td class="board-list-td">{{ boardGame.boardgamename }}</td>
+            <td class="board-list-td">{{ boardGame.publishyear }}</td>
+            <td class="board-list-td">{{ boardGame.estplaytime }}</td>
+            <td class="board-list-td">{{ boardGame.players }}</td>
+            <td class="board-list-td">{{ boardGame.description }}</td>
+            <td class="board-list-td">{{ boardGame.forage }}</td>
+              <td class="board-list-td"><button (click)="navigateTo(boardGame)">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="">
+          <label for="scoreOfGame">Score
+            <input 
+            type="number" 
+            [(ngModel)]="scoreOfGame.score" 
+            class="" 
+            id="score" 
+            name="score" 
+            placeholder="Enter"
+            required ng-min="1"
+            required ng-max="5"
+            required>
+          </label>
+        </div>
+        <div [hidden]="validate(scoreOfGame.score)" class="">Score must be between 1 and 5</div>
+        <button type="submit" [disabled]="!validate(scoreOfGame.score)" 
+          class="">Submit</button>
+      </form>
+    </div>
+  </div>

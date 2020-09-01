@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="table-board-list">
+      <table class="board-list">
+        <thead>
+          <tr class="board-list-tr">
+            <th class="board-list-th" scope="col">#</th>
+            <th class="board-list-th" scope="col">Name</th>
+            <th class="board-list-th" scope="col">Surname</th>
+            <th class="board-list-th" scope="col">Biography</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="board-list-tr" *ngFor="let author of authors" (click)="navigateTo(author)">
+              <td class="board-list-td">{{ author.id }}</td>
+              <td class="board-list-td">{{ author.authorname }}</td>
+              <td class="board-list-td">{{ author.authorsurname }}</td>
+              <td class="board-list-td">{{ author.shortbio }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

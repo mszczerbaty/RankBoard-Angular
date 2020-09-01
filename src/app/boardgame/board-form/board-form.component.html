@@ -1,0 +1,64 @@
+<div class="">
+  <div class="">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="boardGame.boardgamename" 
+          class="" 
+          id="boardgamename" 
+          name="boardgamename" 
+          placeholder="Enter"
+          required #boardgamename="ngModel">
+      </div>
+      <div [hidden]="!boardgamename.pristine" class="">Name is required</div>
+      <div class="">
+        <label for="publishyear">Publish Year</label>
+        <input type="text" [(ngModel)]="boardGame.publishyear" 
+          class="" 
+          id="publishyear" 
+          name="publishyear" 
+          placeholder="Enter"
+          required #publishyear="ngModel">
+        <div [hidden]="!publishyear.pristine" class="">Publish year is required</div>
+      </div>
+      <div class="">
+        <label for="estplaytime">Estimated playtime</label>
+        <input type="text" [(ngModel)]="boardGame.estplaytime" 
+          class="" 
+          id="estplaytime" 
+          name="estplaytime" 
+          placeholder="Enter"
+          required #estplaytime="ngModel">
+        <div [hidden]="!estplaytime.pristine" class="">Estimated playtime is required</div>
+      </div>
+      <div class="">
+        <label for="players">Max number of players</label>
+        <input type="text" [(ngModel)]="boardGame.players" 
+          class="" 
+          id="players" 
+          name="players" 
+          placeholder="Enter"
+          required #players="ngModel">
+        <div [hidden]="!players.pristine" class="">Max number of players is required</div>
+      </div>
+      <div class="">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="boardGame.description" 
+          class="" 
+          id="description" 
+          name="description" 
+          placeholder="Enter">
+      </div>
+      <div class="">
+        <label for="forage">Required age for game</label>
+        <input type="text" [(ngModel)]="boardGame.forage" 
+          class="" 
+          id="forage" 
+          name="forage" 
+          placeholder="Enter">
+      </div>
+      <button type="submit" [disabled]="!userForm.form.valid" 
+        class="">Submit</button>
+    </form>
+  </div>
+</div>

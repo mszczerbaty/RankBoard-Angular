@@ -1,0 +1,29 @@
+<div class="">
+    <div class="">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="boardGame.boardgamename" 
+            class="" 
+            id="boardgamename" 
+            name="boardgamename" 
+            placeholder="Enter"
+            required #boardgamename="ngModel">
+        </div>
+        <div [hidden]="!boardgamename.pristine" class="">Name is required</div>
+        <div class="">
+          <label for="publishyear">Publish Year</label>
+          <input type="text" [(ngModel)]="boardGame.publishyear" 
+            class="" 
+            id="publishyear" 
+            name="publishyear" 
+            placeholder="Enter"
+            required #publishyear="ngModel">
+          <div [hidden]="!publishyear.pristine" class="">Publish year is required</div>
+        </div>
+        <button type="submit" [disabled]="!userForm.form.valid" 
+          class="">Submit</button>
+      </form>
+    </div>
+  </div>
+  <button (click) = "deleteBoardGame(boardGame)">DELETE</button>

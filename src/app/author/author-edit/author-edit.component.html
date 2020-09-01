@@ -1,0 +1,36 @@
+<div class="">
+    <div class="">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="author.authorname" 
+            class="" 
+            id="authorname" 
+            name="authorname" 
+            placeholder="Enter"
+            required #authorname="ngModel">
+        </div>
+        <div [hidden]="!authorname.pristine" class="">Name is required</div>
+        <div class="">
+          <label for="authorsurname">Surname</label>
+          <input type="text" [(ngModel)]="author.authorsurname" 
+            class="" 
+            id="authorsurname" 
+            name="authorsurname" 
+            placeholder="Enter"
+            required #authorsurname="ngModel">
+          <div [hidden]="!authorsurname.pristine" class="">Publish year is required</div>
+        </div>
+        <button type="submit" [disabled]="!userForm.form.valid" 
+          class="">Submit</button>
+      </form>
+    </div>
+  </div>
+  <ng-multiselect-dropdown
+  [settings]="dropdownSettings"
+  [placeholder]="'Choose board games'"
+  [data]="dropdownList"
+  [(ngModel)]="selectedItems"
+>
+</ng-multiselect-dropdown>
+<button (click) = "deleteAuthor(author)">DELETE</button>
