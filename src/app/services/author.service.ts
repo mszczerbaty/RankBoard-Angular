@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Author } from './author';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Author } from '../entities/author';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,18 @@ import { Observable } from 'rxjs';
 export class AuthorService {
 
   private authorUrl: string;
+
   constructor(private http: HttpClient) {
-    this.authorUrl = 'http://localhost:8080/RankBoard/authors/'
-   }
-   public findAll(): Observable<Author[]> {
-    return this.http.get<Author[]>(this.authorUrl);
+    this.authorUrl = `${environment.apiUrl}/authors/`;
   }
- 
+
+  findByGameId(gameId: number): Observable<Author[]> {
+    return this.http.get<Author[]>(this.authorUrl.concat("game/",gameId.toString()));
+  }
+
+  public findAll(): Observable<Author[]> {
+    return this.http.get<Author[]>(`${environment.apiUrl}/authors`);
+  }
   public save(author: Author) {
     return this.http.post<Author>(this.authorUrl, author);
   }
@@ -24,11 +30,11 @@ export class AuthorService {
     return this.http.get<Author>(this.authorUrl.concat(authorId.toString()));
   }
 
-  delete(authorId: number): Observable<{}>{
+  delete(authorId: number): Observable<{}> {
     return this.http.delete<Author>(this.authorUrl.concat(authorId.toString()));
   }
 
-  update (author: Author, authorId: number) {
+  update(author: Author, authorId: number) {
     return this.http.put<Author>(this.authorUrl.concat(authorId.toString()), author);
   }
 }

@@ -1,0 +1,23 @@
+<div class="block">
+    <div class="tile">
+        <div class="name">Sign in</div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <label for="username" class="form-label">Username</label>
+            <input type="text" formControlName="username" />
+            <div *ngIf="formControls.username.errors" class="alert">
+                <div *ngIf="formControls.username.errors.required">Username is required</div>
+            </div>
+
+            <label for="password" class="form-label">Password</label>
+            <input type="password" formControlName="password" />
+            <div *ngIf="formControls.password.errors" class="alert">
+                <div *ngIf="formControls.password.errors.required">Password is required</div>
+            </div>
+
+            <button class="button">
+                Login
+            </button>
+        </form>
+    </div>
+</div>

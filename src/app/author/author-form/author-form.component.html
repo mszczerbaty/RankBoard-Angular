@@ -1,47 +1,31 @@
-<div class="">
-    <div class="">
-      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-        <div class="">
-          <label for="name">Name</label>
-          <input type="text" [(ngModel)]="author.authorname" 
-            class="" 
-            id="authorname" 
-            name="authorname" 
-            placeholder="Enter"
-            required #authorname="ngModel">
-        </div>
-        <div [hidden]="!authorname.pristine" class="">Name is required</div>
-        <div class="">
-          <label for="authorsurname">Surname</label>
-          <input type="text" [(ngModel)]="author.authorsurname" 
-            class="" 
-            id="authorsurname" 
-            name="authorsurname" 
-            placeholder="Enter"
-            required #authorsurname="ngModel">
-          <div [hidden]="!authorsurname.pristine" class="">Publish year is required</div>
-        </div>
-        <div class="">
-          <label for="shortbio">Description/biography</label>
-          <input type="text" [(ngModel)]="author.shortbio" 
-            class="" 
-            id="shortbio" 
-            name="shortbio" 
-            placeholder="Enter">
-        </div>
-        <button type="submit" [disabled]="!userForm.form.valid" 
-          class="">Submit</button>
-      </form>
-    </div>
+<div class="block">
+  <div class="tile">
+    <div class="name">Author form</div>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form">
+
+      <label for="name" class="form-label">Name</label>
+      <input type="text" [(ngModel)]="author.authorname" class="" id="authorname" name="authorname" placeholder="Enter"
+        required #authorname="ngModel">
+
+      <div [hidden]="!authorname.pristine" class="alert">Name is required</div>
+
+      <label for="authorsurname" class="form-label">Surname</label>
+      <input type="text" [(ngModel)]="author.authorsurname" class="" id="authorsurname" name="authorsurname"
+        placeholder="Enter" required #authorsurname="ngModel">
+      <div [hidden]="!authorsurname.pristine" class="alert">Publish year is required</div>
+
+      <label for="shortbio" class="form-label">Description/biography</label>
+      <input type="text" [(ngModel)]="author.shortbio" class="" id="shortbio" name="shortbio" placeholder="Enter"
+        required #shortbio="ngModel">
+      <div [hidden]="!shortbio.pristine" class="alert">Biography is required</div>
+
+      <ng-multiselect-dropdown [settings]="dropdownSettings" [placeholder]="'Choose board games'" [data]="dropdownList"
+        [(ngModel)]="selectedItems" name="boardgames" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+        (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+      </ng-multiselect-dropdown>
+
+      <button type="submit" [disabled]="!userForm.form.valid" class="button">Submit</button>
+    </form>
+
   </div>
-  <ng-multiselect-dropdown
-  [settings]="dropdownSettings"
-  [placeholder]="'Choose board games'"
-  [data]="dropdownList"
-  [(ngModel)]="selectedItems"
-  (onSelect)="onItemSelect($event)"
-  (onDeSelect)="OnItemDeSelect($event)"
-  (onSelectAll)="onSelectAll($event)"
-  (onDeSelectAll)="onDeSelectAll($event)"
->
-</ng-multiselect-dropdown>
+</div>

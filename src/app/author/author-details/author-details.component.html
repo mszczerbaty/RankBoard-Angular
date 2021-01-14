@@ -1,25 +1,28 @@
-
-<div class="container">
-    <div class="table-board-list">
-      <table class="board-list">
-        <thead>
-          <tr class="board-list-tr">
-            <th class="board-list-th" scope="col">#</th>
-            <th class="board-list-th" scope="col">Name</th>
-            <th class="board-list-th" scope="col">Surname</th>
-            <th class="board-list-th" scope="col">Biography</th>
-            <th class="board-list-th" scope="col">Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="board-list-tr" *ngIf="author">
-              <td class="board-list-td">{{ author.id }}</td>
-              <td class="board-list-td">{{ author.authorname }}</td>
-              <td class="board-list-td">{{ author.authorsurname }}</td>
-              <td class="board-list-td">{{ author.shortbio }}</td>
-              <td class="board-list-td"><button (click)="navigateTo(author)">Edit</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="block" *ngIf="author">
+  <div class="tile">
+    <div class="name-author">{{author.authorname}} {{author.authorsurname}}</div>
+    <div class="detail-author">{{author.shortbio}}</div>
+    <button class="button" [hidden]="!adminCheck()" (click)="navigateToAuthorEdit(author.id)">Edit</button>
   </div>
+
+  <table class="board-list">
+    <thead>
+      <tr class="board-list-thead">
+        <th class="board-list-th" scope="col">#</th>
+        <th class="board-list-th" scope="col">Title</th>
+        <th class="board-list-th" scope="col">Avegare Score</th>
+        <th class="board-list-th" scope="col">Number of votes</th>
+        <th class="board-list-th" scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="board-list-tr" *ngFor="let boardGame of boardgamesOfAuthor; index as i" (click)="navigateTo(boardGame.id)"> 
+        <td class="board-list-td">{{ i+1 }}</td>
+        <td class="board-list-td">{{ boardGame.boardgamename }} ({{boardGame.publishyear}})</td>
+        <td class="board-list-td">{{ getAverageScore(boardGame.id) }}</td>
+        <td class="board-list-td">{{ getNumberOfVotes(boardGame.id) }}</td>
+        <td class="board-list-td"><img class="image" src="{{boardGame.imageLink}}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

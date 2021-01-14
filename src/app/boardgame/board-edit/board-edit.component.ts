@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardGame } from '../boardgame';
+import { BoardGame } from '../../entities/boardgame';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthorService } from 'src/app/author/author.service';
-import { BoardgameService } from '../boardgame.service';
+import { AuthorService } from 'src/app/services/author.service';
+import { BoardgameService } from '../../services/boardgame.service';
 
 @Component({
   selector: 'app-board-edit',
@@ -28,10 +28,10 @@ export class BoardEditComponent implements OnInit {
   deleteBoardGame(boardGame: any) {
     this.boardGameService.delete(boardGame.id).subscribe(() => console.log("boardGame deleted"));
     this.router.navigate(['/boardGames/']);
-    }
+  }
 
-    onSubmit() {
-      this.boardGameService.update(this.boardGame, this.boardId).subscribe(() => this.router.navigate(['/boardGames']));
-    }
+  onSubmit() {
+    this.boardGameService.update(this.boardGame, this.boardId).subscribe(() => this.router.navigate(['/boardGames']));
+  }
 
 }

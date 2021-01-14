@@ -1,0 +1,14 @@
+<div class="tile">
+    <table class="hot-list">
+        <thead>
+            <thead class="hot-list-thead">Hot Games
+            </thead>
+        </thead>
+        <tbody>
+            <tr class="hot-list-tr" *ngFor="let hotGame of hotGames">
+                <img class="image" src="{{hotGame.thumbnail}}">
+                <div class="hot-list-td">{{ hotGame.name }} <br><div class="year">({{ hotGame.yearPublished }})</div></div>
+            </tr>
+        </tbody>
+    </table>
+</div>

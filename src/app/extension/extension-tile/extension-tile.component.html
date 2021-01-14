@@ -1,0 +1,13 @@
+<div class="tile" *ngIf="extension">
+  <div class="inline">
+    <img class="image" src="{{extension.extImageLink}}">
+  </div>
+  <div class="inline-details">
+    <div>
+      <div class="name">Name: {{extension.id}} {{extension.extensionname}} ({{extension.extpublishyear}})</div>
+    </div>
+    <div class="line"></div>
+    <div class="line">Description: {{extension.extdescription}}</div>
+    <button class="button" [hidden]="!adminCheck()" (click)="navigateToExtensionEdit(extension.id)">Edit</button>
+  </div>
+</div>

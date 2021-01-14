@@ -1,30 +1,25 @@
-<div class="container">
-    <div class="table-board-list">
-      <table class="board-list">
-        <thead>
-          <tr class="board-list-tr">
-            <th class="board-list-th" scope="col">#</th>
-            <th class="board-list-th" scope="col">Boardgame</th>
-            <th class="board-list-th" scope="col">Rok publikacji</th>
-            <th class="board-list-th" scope="col">Czas gry</th>
-            <th class="board-list-th" scope="col">Ilosc graczy</th>
-            <th class="board-list-th" scope="col">Opis</th>
-            <th class="board-list-th" scope="col">Wiek</th>
-            <th class="board-list-th" scope="col">Average score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="board-list-tr" *ngFor="let boardGame of boardGames" (click)="navigateTo(boardGame)"> 
-            <td class="board-list-td">{{ boardGame.id }}</td>
-            <td class="board-list-td">{{ boardGame.boardgamename }}</td>
-            <td class="board-list-td">{{ boardGame.publishyear }}</td>
-            <td class="board-list-td">{{ boardGame.estplaytime }}</td>
-            <td class="board-list-td">{{ boardGame.players }}</td>
-            <td class="board-list-td">{{ boardGame.description }}</td>
-            <td class="board-list-td">{{ boardGame.forage }}</td>
-            <td class="board-list-td">{{ getAverageScore(boardGame.id) }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="block">
+  <app-hot-games></app-hot-games>
+  <div class="tile">
+    <table class="board-list">
+      <thead>
+        <tr class="board-list-thead">
+          <th class="board-list-th" scope="col">#</th>
+          <th class="board-list-th" scope="col">Title</th>
+          <th class="board-list-th" scope="col">Avegare Score</th>
+          <th class="board-list-th" scope="col">Number of votes</th>
+          <th class="board-list-th" scope="col">Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="board-list-tr" *ngFor="let boardGame of boardGames; index as i" (click)="navigateTo(boardGame)">
+          <td class="board-list-td">{{ i+1 }}</td>
+          <td class="board-list-td">{{ boardGame.boardgamename }} ({{boardGame.publishyear}})</td>
+          <td class="board-list-td">{{ getAverageScore(boardGame.id) }}</td>
+          <td class="board-list-td">{{ getNumberOfVotes(boardGame.id) }}</td>
+          <td class="board-list-td"><img class="image" src="{{boardGame.imageLink}}"></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

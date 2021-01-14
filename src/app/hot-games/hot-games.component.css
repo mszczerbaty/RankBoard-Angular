@@ -1,0 +1,40 @@
+.tile {
+    margin: 8px;
+    vertical-align: top;
+    flex: 1;
+}
+
+.hot-list-thead {
+    display: block;
+    border-radius: 3px 3px 0 0;
+    background-color: #003261;
+    padding: 7px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+}
+
+.image {
+    vertical-align: top;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+}
+
+.hot-list-td {
+    height: 45px;
+    padding: 4px;
+    vertical-align: top;
+    color: white;
+    width: 120px;
+    overflow-wrap: normal;
+    font-size: 12px;
+    font-weight:600;
+    display: inline-block;
+}
+
+.year {
+    font-weight: 500;
+    font-size: 12px;
+}

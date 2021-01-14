@@ -1,11 +1,17 @@
-<nav class = "nav-background">
+<nav class="nav-background">
   <div>
-        <ul class="nav-ul" routerLinkActive="active">
-          <li class="nav-li"><a class="nav-a" routerLink="">Home</a></li>
-          <li class="nav-li"><a class="nav-a" routerLink="boardGames">Board Games</a></li>
-          <li class="nav-li"><a class="nav-a" routerLink="addBoardGame">Add Game</a></li>
-          <li class="nav-li"><a class="nav-a" routerLink="authors">Authors</a></li>
-          <li class="nav-li"><a class="nav-a" routerLink="addAuthor">Add Author</a></li>
-        </ul>
+    <ul class="nav-ul" routerLinkActive="active">
+      <li class="nav-li">
+        <div class="title">RankBoard</div>
+      </li>
+      <li class="nav-li"><a class="nav-a" routerLink="boardGames">Home</a></li>
+      <li class="nav-li"><a class="nav-a" routerLink="authors">Authors</a></li>
+      <li class="nav-li" [hidden]="!admin()"><a class="nav-a" routerLink="addBoardGame">Add Game</a></li>
+      <li class="nav-li" [hidden]="!admin()"><a class="nav-a" routerLink="addAuthor">Add Author</a></li>
+      <li class="nav-li" [hidden]="logCheck()"><a class="nav-a" routerLink="login">Log In</a></li>
+      <li class="nav-li" [hidden]="logCheck()"><a class="nav-a" routerLink="register">Register</a></li>
+      <li class="nav-li" [hidden]="!admin()"><a class="nav-a" routerLink="register">Add admin</a></li>
+      <li class="nav-li" [hidden]="!logCheck()"><a class="nav-a" (click)="logout()">Logout</a></li>
+    </ul>
   </div>
 </nav>

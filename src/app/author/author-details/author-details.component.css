@@ -1,34 +1,15 @@
-.table-board-list {
-    margin: 2px;
-}
-
-.board-list {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    margin: 10px;
-}
-
-.board-list-tr:nth-child(even){background-color: #f2f2f2;}
-.board-list-tr:nth-child(odd){background-color: #ddd;}
-.board-list-tr:hover {background-color: lightseagreen;}
-
-.board-list-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.board-list-th {
-    border: 1px solid rgb(17, 17, 17);
-    padding: 8px;
-    padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: cadetblue;
-  color: white;
-}
-
-.container {
-    background-color: whitesmoke;
-    overflow: auto;
+.name-author {
+    color: white;
     margin: 5px;
+    padding-bottom: 10px;
+    padding-top: 3px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-variant: small-caps;
+}
+
+.detail-author {
+    padding: 5px;
+    color: white;
 }

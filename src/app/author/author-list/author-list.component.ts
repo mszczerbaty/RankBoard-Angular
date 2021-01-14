@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Author } from '../author';
-import { AuthorService } from '../author.service';
+import { Author } from '../../entities/author';
+import { AuthorService } from '../../services/author.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,16 +12,17 @@ export class AuthorListComponent implements OnInit {
 
   authors: Author[];
 
-  constructor(private authorService: AuthorService, private router: Router) { }
+  constructor(private router: Router, private authorSevrice: AuthorService) {
+   }
 
   ngOnInit(): void {
-    this.authorService.findAll().subscribe(data => {
+    this.authorSevrice.findAll().subscribe(data => {
       this.authors = data;
-      console.log(data);
     })
   }
   navigateTo(author: any) {
     console.log(author.id)//testing
     this.router.navigate(['/authors/'+ author.id]);
     }
+
 }

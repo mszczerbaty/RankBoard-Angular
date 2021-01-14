@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardGame } from '../boardgame';
-import { BoardgameService } from '../boardgame.service';
+import { BoardGame } from '../../entities/boardgame';
+import { BoardgameService } from '../../services/boardgame.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class BoardFormComponent {
       this.boardGame = new BoardGame();
     }
 onSubmit() {
-  console.log(this.boardGame);
+  console.log(this.boardGame);//
   this.boardGameService.save(this.boardGame).subscribe(result => this.router.navigate(['/boardGames']));
 }
 }

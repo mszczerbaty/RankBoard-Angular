@@ -1,8 +1,22 @@
 .nav-background {
-  background-color: darkcyan;
+  background-color: #600201;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
+
+.title {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-variant: small-caps;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  padding: 13px 16px;
+}
+
 .nav-ul {
-  position: sticky;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,15 +28,17 @@
 }
 
 .nav-a {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-variant: small-caps;
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   display: block;
   text-align: center;
   padding: 14px 16px;
-  background-color: darkcyan;
 }
 
 .nav-a:hover {
-  background-color: white;
+  background-color:#002861;
+  cursor: pointer;
 }

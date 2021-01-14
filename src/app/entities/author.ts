@@ -1,4 +1,4 @@
-import { BoardGame } from '../boardgame/boardgame';
+import { BoardGame } from './boardgame';
 
 export class Author {
     id: number;

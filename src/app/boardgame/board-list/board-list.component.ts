@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardGame } from '../boardgame';
-import { BoardgameService } from '../boardgame.service';
+import { BoardGame } from '../../entities/boardgame';
+import { BoardgameService } from '../../services/boardgame.service';
 import { Router } from '@angular/router';
-import { Score } from '../score';
-import { ScoreService } from '../score.service';
+import { ScoreService } from '../../services/score.service';
+import { ScoreAverage } from 'src/app/entities/score-average';
+import { ScoreCount } from 'src/app/entities/score-count';
 
 @Component({
   selector: 'app-board-list',
@@ -13,40 +14,59 @@ import { ScoreService } from '../score.service';
 export class BoardListComponent implements OnInit {
 
   boardGames: BoardGame[];
-  scores: Score[];
+  scores: ScoreAverage[];
   scoreOfGame: number;
-  licznik: number;
+  score: number;
+  scoresCount: ScoreCount[];
+  scoreCount: number;
 
-  constructor(private boardgame: BoardgameService, private router: Router, private scoreService: ScoreService) {
-  this.scores = [new Score()]; 
+  constructor(private boardgameService: BoardgameService, private router: Router, private scoreService: ScoreService) {
   }
 
   ngOnInit(): void {
-    this.boardgame.findAll().subscribe(data => {
+    this.boardgameService.findAll().subscribe(data => {
       this.boardGames = data;
-      console.log(data);
+      console.log(data);//
     });
-    this.scoreService.findAll().subscribe(data => {
+    this.scoreService.getAverageScores().subscribe(data => {
       this.scores = data;
-      console.log(data);
-    });   
+      console.log(data);//
+    });
+    this.scoreService.countScores().subscribe(data => {
+      this.scoresCount = data;
+      console.log(data);//
+    });
   }
 
   navigateTo(boardgame: any) {
     console.log(boardgame.id);
-    this.router.navigate(['/boardGames/'+ boardgame.id]);
-    }
+    this.router.navigate(['/boardGames/' + boardgame.id]);
+  }
 
-    getAverageScore(boardGameId: number){
-      this.scoreOfGame = 0;
-      this.licznik = 0;
-      for(let j=0;j<this.scores.length;j++){  
-        if(this.scores[j].boardgame.id == boardGameId){
-          this.scoreOfGame+= this.scores[j].score;
-          this.licznik++;
-        }
-        }
-      return this.scoreOfGame/this.licznik;
+  getAverageScore(id: number) {
+    this.score == 0;
+    try {
+      if (this.scores.some(x => x.boardgameId === id)) {
+        this.score = this.scores.find(x => x.boardgameId === id).score;
+        return this.score;
+      }
+    } catch (error) {
+      //console.log(error);
     }
+  }
+
+  getNumberOfVotes(id: number){
+    this.scoreCount == 0;
+    try {
+      if (this.scoresCount.some(x => x.boardgameId === id)) {
+        this.scoreCount = this.scoresCount.find(x => x.boardgameId === id).scoreCount;
+        return this.scoreCount;
+      }
+    } catch (error) {
+      //console.log(error);
+    }
+  }
+
+
 
 }

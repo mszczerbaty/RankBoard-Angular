@@ -1,40 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { Author } from '../author';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Author } from '../../entities/author';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthorService } from '../author.service';
+import { AuthorService } from '../../services/author.service';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { BoardGame } from '../../boardgame/boardgame';
-import { BoardgameService } from '../../boardgame/boardgame.service';
+import { BoardGame } from '../../entities/boardgame';
+import { BoardgameService } from '../../services/boardgame.service';
 
 @Component({
   selector: 'app-author-form',
   templateUrl: './author-form.component.html',
-  styleUrls: ['./author-form.component.css']
+  styleUrls: ['./author-form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AuthorFormComponent implements OnInit{
+export class AuthorFormComponent implements OnInit {
 
   author: Author;
   boardGames: BoardGame[];
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings: IDropdownSettings;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private authorService: AuthorService, private boardgame: BoardgameService){
-      this.author = new Author();
-    }
+    private authorService: AuthorService, private boardgame: BoardgameService) {
+    this.author = new Author();
+  }
 
-onSubmit() {
-  this.author.boardgames = this.selectedItems;
-  console.log(this.author);
-  this.authorService.save(this.author).subscribe(result => this.gotToAuthorList());
-}
+  onSubmit() {
+    this.author.boardgames = this.selectedItems;
+    console.log(this.author);
+    this.authorService.save(this.author).subscribe(result => this.gotToAuthorList());
+  }
 
-gotToAuthorList() {
-  this.router.navigate(['/authors']);
-}
+  gotToAuthorList() {
+    this.router.navigate(['/authors']);
+  }
 
-dropdownList = [];
-  selectedItems = [];
-  dropdownSettings:IDropdownSettings;
   ngOnInit() {
     this.boardgame.findAll().subscribe(data => {
       this.boardGames = data;
@@ -48,22 +49,22 @@ dropdownList = [];
       textField: 'boardgamename',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 5,
+      itemsShowLimit: 6,
       allowSearchFilter: true
     };
   }
-  onItemSelect(item:any){
+  onItemSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
-}
-OnItemDeSelect(item:any){
+  }
+  OnItemDeSelect(item: any) {
     console.log(item);
     console.log(this.selectedItems);
-}
-onSelectAll(items: any){
+  }
+  onSelectAll(items: any) {
     console.log(items);
-}
-onDeSelectAll(items: any){
+  }
+  onDeSelectAll(items: any) {
     console.log(items);
-}
+  }
 }

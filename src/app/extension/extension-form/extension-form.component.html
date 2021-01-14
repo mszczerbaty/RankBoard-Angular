@@ -1,0 +1,32 @@
+<div class="block">
+    <div class="tile">
+      <div class="name">Extension edit</div>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <label for="extensionname" class="form-label">extensionname</label>
+        <input type="text" [(ngModel)]="extension.extensionname" class="" id="extensionname" name="extensionname" placeholder="Enter"
+          required #extensionname="ngModel">
+        <div [hidden]="!extensionname.pristine" class="alert">required</div>
+  
+        <label for="extdescription" class="form-label">extdescription</label>
+        <input type="text" [(ngModel)]="extension.extdescription" class="" id="extdescription" name="extdescription"
+          placeholder="Enter" required #extdescription="ngModel">
+        <div [hidden]="!extdescription.pristine" class="alert">required</div>
+  
+        <label for="extpublishyear" class="form-label">extpublishyear</label>
+        <input type="text" [(ngModel)]="extension.extpublishyear" class="" id="extpublishyear" name="extpublishyear" placeholder="Enter"
+          required #extpublishyear="ngModel">
+        <div [hidden]="!extpublishyear.pristine" class="alert">required</div>
+
+        <label for="extImageLink" class="form-label">extImageLink</label>
+        <input type="text" [(ngModel)]="extension.extImageLink" class="" id="extImageLink" name="extImageLink" placeholder="Enter"
+          required #extImageLink="ngModel">
+        <div [hidden]="!extImageLink.pristine" class="alert">required</div>
+  
+        <ng-select [items]="dropdownList" bindLabel="boardgamename"
+          [(ngModel)]="selectedItem" name="boardgames">
+        </ng-select>
+  
+        <button type="submit" [disabled]="!userForm.form.valid" class="button">Submit</button>
+      </form>
+    </div>
+  </div>

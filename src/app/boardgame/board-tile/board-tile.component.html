@@ -1,0 +1,28 @@
+<div class="tile">
+  <div class="inline">
+    <img class="image" src="{{imageLink}}">
+  </div>
+  <div class="inline-details">
+    <div>
+      <div class="score-image" [ngStyle]="{'background-color':getColor(10)}">10</div>
+      <div class="name">Title: {{id}} {{boardgamename}} ({{publishyear}})</div>
+    </div>
+    <div class="separator"></div>
+    <div>
+      <div class="detail">Age: {{forage}}</div>
+      <div class="detail">Play Time: {{estplaytime}}</div>
+      <div class="detail">Players: {{players}}</div>
+    </div>
+    <div class="line"></div>
+    <div class="line">Description: {{description}}</div>
+    <div class="line">Authors:</div>
+    <div *ngFor="let author of authorsOfGame" class="inline-info" (click)=navigateToAuthor(author.id)>
+      {{author.authorname}}</div>
+    <div class="line">Extensions</div>
+    <div *ngFor="let extension of extensionsOfGame" class="inline-info" (click)=showExtension(extension.id)>
+      {{extension.extensionname}}</div>
+    <br/>
+    <button class="button" [hidden]="!adminCheck()" (click)="navigateToBoardgameEdit(id)">Edit</button>
+  </div>
+</div>
+<app-extension-tile *ngIf="displayExt" [id]="showExtId"></app-extension-tile>

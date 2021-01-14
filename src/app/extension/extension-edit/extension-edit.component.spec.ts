@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardRankingComponent } from './board-ranking.component';
+import { ExtensionEditComponent } from './extension-edit.component';
 
-describe('BoardRankingComponent', () => {
-  let component: BoardRankingComponent;
-  let fixture: ComponentFixture<BoardRankingComponent>;
+describe('ExtensionEditComponent', () => {
+  let component: ExtensionEditComponent;
+  let fixture: ComponentFixture<ExtensionEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardRankingComponent ]
+      declarations: [ ExtensionEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardRankingComponent);
+    fixture = TestBed.createComponent(ExtensionEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

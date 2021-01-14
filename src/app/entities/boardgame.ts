@@ -3,7 +3,8 @@ export class BoardGame {
     boardgamename: string;
     publishyear: number;
     estplaytime: number;
-    players: number;
+    players: string;
     description: string;
     forage: number;
+    imageLink: string;
 }
