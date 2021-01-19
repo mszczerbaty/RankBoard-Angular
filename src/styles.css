@@ -20,7 +20,6 @@ html, body {
     border: 2px gray solid;
     border-radius: 3px;
     background-image: linear-gradient(to right, black, #63000A);
-    overflow: hidden;
     padding: 5px;
     margin-bottom: 10px;   
 }
