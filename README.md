@@ -17,19 +17,19 @@ BoardGameGeek JSON API is used to show additional info about currently hottest g
 * Login as admin to edit all information or add a new admin (username: 'admin1', password: 'admin1')
 
 ## Example of use
-**Register**  
+### Register  
 ![Register](./images/register.JPG)  
-**Home page - Click on board game**  
+### Home page - Click on board game  
 ![Home page](./images/home.JPG)  
-**Board game details and reviews**  
+### Board game details and reviews  
 ![Boardgame](./images/boardgame.JPG)  
-**Click on 'Add a review' button to send your score and review**  
+### Click on 'Add a review' button to send your score and review  
 ![Review](./images/review.JPG)  
-**Authors list - click on author row to find more details**  
+### Authors list - click on author row to find more details  
 ![Authors](./images/authors.JPG)  
-**Author description and list of games he made**  
+### Author description and list of games he made  
 ![Author](./images/author.JPG)  
-**Sign in as admin to edit all information or add a new admin (username: 'admin1', password: 'admin1')**  
+### Sign in as admin to edit all information or add a new admin (username: 'admin1', password: 'admin1  
 ![Admin](./images/admin.JPG)  
 
 ## Other information
