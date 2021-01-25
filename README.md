@@ -7,7 +7,9 @@ BoardGameGeek JSON API is used to show additional info about currently hottest g
 * [Features](#features)
 * [Example of use](#example-of-use)
 * [Other information](#other-information)
+* [TODO](#todo)
 * [Development server](#development-server)
+
 
 ## Features
 * Register and login (security with basic authentication)
@@ -36,6 +38,10 @@ BoardGameGeek JSON API is used to show additional info about currently hottest g
 This app was inspired by https://boardgamegeek.com/.
 It is still being developed and new features will be added.
 Generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+
+## TODO
+* user can delete his reviews
+* add confilct (409) warning
 
 ## Development server
 
