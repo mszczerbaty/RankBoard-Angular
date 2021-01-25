@@ -1,6 +1,40 @@
-# RankBoard
+# General info
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Front-end Angular application made for browsing, reviewing and scoring your favourite board games.
+BoardGameGeek JSON API is used to show additional info about currently hottest games.
+
+## Table of contents
+* [Features](#features)
+* [Example of use](#example-of-use)
+* [Other information](#other-information)
+
+## Features
+* Register and login (security with basic authentication)
+* Search through board games and authors
+* Learn information about board games, authors and extensions
+* Write your review and score for board games
+* Login as admin to edit all information or add a new admin (username: 'admin1', password: 'admin1')
+
+
+## Example of use
+Register
+![Register](./images/register.jpg)
+Home page - Click on board game
+![Home page](./images/home.jpg)
+Board game details and reviews
+![Boardgame](./images/boardgame.jpg)
+Click on 'Add a review' button to send your score and review
+![Review](./images/review.jpg)
+Authors list - click on row to find more details
+![Authors](./images/authors.jpg)
+Author description and list of games he made
+![Author](./images/author.jpg)
+Sign in as admin to edit all information or add a new admin (username: 'admin1', password: 'admin1')
+![Admin](./images/admin.jpg)
+
+## Other information
+This app was inspired by https://boardgamegeek.com/.
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
 
