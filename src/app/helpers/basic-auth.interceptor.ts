@@ -17,7 +17,6 @@ export class BasicAuthInterceptor implements HttpInterceptor {
                     Authorization: `Basic ${user.authdata}`
                 }
             });
-            console.log("jestes zalogowany wiec header dodany " + request.headers.get('Authorization'));//
         }
         return next.handle(request);
     }

@@ -15,6 +15,10 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // auto logout if 401 response returned from api
                 this.authenticationService.logout();
             }
+            if (err.status === 404) {
+                console.log("404 not found");
+                //TODO display warning 404 
+            }
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))

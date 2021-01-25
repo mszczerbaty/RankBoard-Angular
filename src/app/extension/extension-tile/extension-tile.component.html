@@ -4,10 +4,10 @@
   </div>
   <div class="inline-details">
     <div>
-      <div class="name">Name: {{extension.id}} {{extension.extensionname}} ({{extension.extpublishyear}})</div>
+      <div class="name">{{extension.extensionname}} ({{extension.extpublishyear}})</div>
     </div>
     <div class="line"></div>
-    <div class="line">Description: {{extension.extdescription}}</div>
+    <div class="line">{{extension.extdescription}}</div>
     <button class="button" [hidden]="!adminCheck()" (click)="navigateToExtensionEdit(extension.id)">Edit</button>
   </div>
 </div>
