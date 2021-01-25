@@ -18,7 +18,7 @@ BoardGameGeek JSON API is used to show additional info about currently hottest g
 
 ## Example of use
 Register
-![Register](./images/register.jpg)
+![Register](../../images/register.jpg)
 Home page - Click on board game
 ![Home page](./images/home.jpg)
 Board game details and reviews
