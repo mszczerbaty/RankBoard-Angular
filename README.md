@@ -1,7 +1,7 @@
 # General info
 
 Front-end Angular application made for browsing, reviewing and scoring your favourite board games.
-BoardGameGeek JSON API is used to show additional info about currently hottest games.
+BoardGameGeek JSON API is used to show additional info about popular games.
 
 ## Table of contents
 * [Features](#features)
